@@ -1,0 +1,34 @@
+/* Posisi utama Live2D di kanan bawah */
+#waifu {
+    position: fixed;
+    bottom: 0;
+    right: 10px;
+    z-index: 1000;
+    transform: scale(0.9);
+    transform-origin: bottom right;
+  }
+  
+  /* Panel kontrol (waifu-tool) sejajar dengan model */
+  .waifu-tool {
+    position: absolute;
+    bottom: 0;       /* letakkan di bawah */
+    right: 0;        /* sejajar kanan */
+    display: flex;
+    gap: 5px;
+    padding: 5px;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 8px 0 0 0;
+    z-index: 1001;
+  }
+  
+  /* Tombol ikon */
+  .waifu-tool span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
+    font-size: 18px;
+  }
+  

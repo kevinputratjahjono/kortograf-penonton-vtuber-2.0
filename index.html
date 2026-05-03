@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Live2D & Kartogram</title>
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style_map.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <style>
+    /* Map full screen */
+    #map {
+      height: 100vh;
+      width: 100vw;
+      margin: 0;
+      padding: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Live2D -->
+  <div id="waifu">
+    <div id="waifu-message"></div>
+    <div class="waifu-tool">
+      <span class="icon-next"></span>
+      <span class="icon-home"></span>
+      <span class="icon-message"></span>
+      <span class="icon-camera"></span>
+      <span class="icon-volumeup"></span>
+      <span class="icon-volumedown"></span>
+      <span class="icon-about"></span>
+      <span class="icon-cross"></span>
+    </div>
+    <canvas id="live2d2"></canvas>
+    <canvas id="live2d4"></canvas>
+  </div>
+
+  <!-- Peta -->
+  <div id="map"></div>
+
+  <!-- WADAH GRAFIK DEMOGRAFI -->
+  <div id="chart-container" class="chart-visible" style="position: absolute; bottom: 20px; left: 20px; width: 550px; background: rgba(255, 255, 255, 0.95); padding: 15px; border-radius: 10px; z-index: 1000; box-shadow: 0 0 15px rgba(0,0,0,0.3); transition: all 0.5s ease;">
+  
+  <button onclick="toggleChart()" style="position: absolute; top: -40px; left: 0; padding: 8px 15px; background: #333; color: white; border: none; border-radius: 5px; cursor: pointer; font-weight: bold;">
+    📊 Show/Hide Statistik
+  </button>
+
+  <h3 style="text-align: center; margin-top: 0; color: #333;">Statistik Penonton</h3>
+  <div style="display: flex; justify-content: space-between; align-items: center;">
+    <div style="width: 48%;"><canvas id="umurChart"></canvas></div>
+    <div style="width: 48%;"><canvas id="jamChart"></canvas></div>
+  </div>
+</div>
+
+<script>
+  function toggleChart() {
+    const container = document.getElementById('chart-container');
+    if (container.style.transform === 'translateY(120%)') {
+      container.style.transform = 'translateY(0)';
+    } else {
+      container.style.transform = 'translateY(120%)';
+    }
+  }
+</script>
+
+  <!-- Script Live2D -->
+  <script src="dist/live2d_bundle.js"></script>
+  <script async type="module" src="waifu-tips.js"></script>
+
+  <!-- Leaflet -->
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+  <!-- LIBRARY CHART.JS -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- Script Choropleth (Peta) -->
+  <script src="scriptMap.js"></script>
+  
+  <!-- SCRIPT GRAFIK (Chart) -->
+  <script src="scriptChart.js"></script>
+</body>
+</html>
